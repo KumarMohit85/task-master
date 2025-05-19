@@ -5,14 +5,14 @@
 // - Override toString(), hashCode, == for proper comparisons
 // - Consider using Equatable package later
 
-class Task {
+class Tasks {
   final String id;
   final String title;
   final String description;
   final bool isCompleted;
   final DateTime createdAt;
 
-  Task({
+  const Tasks({
     required this.id,
     required this.title,
     required this.description,
@@ -21,32 +21,32 @@ class Task {
   });
 
   // factory constructor
-  factory Task.fromJson(Map<String, dynamic> json) {
-    return Task(
-        id: json['id'],
-        title: json['title'],
-        description: json['description'],
-        isCompleted: json['isCompleted'],
-        createdAt: DateTime.parse(json['createdAt']));
-  }
+  // factory Tasks.fromJson(Map<String, dynamic> json) {
+  //   return Tasks(
+  //       id: json['id'],
+  //       title: json['title'],
+  //       description: json['description'],
+  //       isCompleted: json['isCompleted'],
+  //       createdAt: DateTime.parse(json['createdAt']));
+  // }
 
-  // convert task to JSOn
-  Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'title': title,
-      'description': description,
-      'isCompleted': isCompleted,
-      'createdAt': createdAt
-    };
-  }
+  // convert Tasks to JSOn
+  // Map<String, dynamic> toJson() {
+  //   return {
+  //     'id': id,
+  //     'title': title,
+  //     'description': description,
+  //     'isCompleted': isCompleted,
+  //     'createdAt': createdAt
+  //   };
+  // }
 
   // override '==' and 'hashcode' for value comparison
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is Task &&
+    return other is Tasks &&
         other.id == id &&
         other.title == title &&
         other.description == description &&
@@ -67,6 +67,6 @@ class Task {
   @override
   String toString() {
     // TODO: implement toString
-    return "Task(id: $id, title: $title, description: $description, isCompleted: $isCompleted, createdAt: $createdAt)";
+    return "Tasks(id: $id, title: $title, description: $description, isCompleted: $isCompleted, createdAt: $createdAt)";
   }
 }
